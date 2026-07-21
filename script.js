@@ -262,53 +262,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ---- Typewriter Effect ----
-const typewriterEl = document.getElementById('typewriter-text');
-const typewriterPhrases = [
-  'Senior QA Engineer',
-  'Test Automation Expert',
-  'Quality Strategist',
-  'CI/CD Integration Specialist',
-  'Performance Testing Engineer'
-];
-
-let twPhrase = 0;
-let twChar = 0;
-let twDeleting = false;
-let twPause = false;
-
-function typewriterTick() {
-  if (!typewriterEl) return;
-
-  const current = typewriterPhrases[twPhrase];
-
-  if (twPause) {
-    setTimeout(typewriterTick, 1200);
-    twPause = false;
-    return;
-  }
-
-  if (!twDeleting) {
-    typewriterEl.textContent = current.substring(0, twChar + 1);
-    twChar++;
-    if (twChar === current.length) {
-      twDeleting = true;
-      twPause = true;
-    }
-    setTimeout(typewriterTick, 80);
-  } else {
-    typewriterEl.textContent = current.substring(0, twChar - 1);
-    twChar--;
-    if (twChar === 0) {
-      twDeleting = false;
-      twPhrase = (twPhrase + 1) % typewriterPhrases.length;
-    }
-    setTimeout(typewriterTick, 40);
-  }
-}
-
-// Start typewriter after hero intro animation
-setTimeout(typewriterTick, 800);
+// ---- Typewriter Effect (disabled - using static role text) ----
+// const typewriterEl = document.getElementById('typewriter-text');
 
 // ---- Cursor Spotlight on Hero ----
 const heroSection = document.querySelector('.hero');
