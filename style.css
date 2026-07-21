@@ -1261,6 +1261,188 @@ footer span {
 .reveal-delay-3 { transition-delay: 0.3s; }
 
 /* ============================================
+   TYPEWRITER
+   ============================================ */
+.typewriter-cursor {
+  display: inline-block;
+  color: var(--secondary);
+  font-weight: 300;
+  animation: twBlink 0.75s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes twBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================
+   DOWNLOAD CV BUTTON
+   ============================================ */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid rgba(0, 212, 170, 0.4);
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-download::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 170, 0.12), rgba(0, 255, 204, 0.06));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.btn-download:hover {
+  border-color: var(--secondary);
+  color: var(--secondary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 212, 170, 0.25);
+}
+
+.btn-download:hover::before { opacity: 1; }
+
+.btn-download svg {
+  animation: downloadBounce 2s ease-in-out infinite;
+}
+
+@keyframes downloadBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* ============================================
+   CURSOR SPOTLIGHT
+   ============================================ */
+.hero-spotlight {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+.hero:hover .hero-spotlight { opacity: 1; }
+
+/* ============================================
+   DOMAINS SECTION
+   ============================================ */
+.domains {
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 170, 0.02) 50%, transparent 100%);
+}
+
+.domains-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.domain-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.domain-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(var(--domain-rgb, 108,99,255), 0.08) 0%, transparent 65%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.domain-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--domain-color, var(--primary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.domain-card:hover {
+  border-color: var(--glass-border-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--domain-color, var(--primary)) inset;
+}
+
+.domain-card:hover::before { opacity: 1; }
+.domain-card:hover::after { transform: scaleX(1); }
+
+.domain-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--domain-color, #6c63ff) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--domain-color, #6c63ff) 30%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+  transition: var(--transition);
+}
+
+.domain-card:hover .domain-icon-wrap {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--domain-color, #6c63ff) 30%, transparent);
+}
+
+.domain-emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.domain-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.domain-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.domain-tag {
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--domain-color, var(--primary));
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 
@@ -1296,6 +1478,10 @@ footer span {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+
+  .domains-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* --- Mobile (≤ 640px) --- */
@@ -1329,10 +1515,13 @@ footer span {
     flex-direction: column;
     align-items: flex-start;
   }
-  .btn-primary, .btn-secondary {
+  .btn-primary, .btn-secondary, .btn-download {
     width: 100%;
     justify-content: center;
   }
+
+  /* Domains */
+  .domains-grid { grid-template-columns: 1fr; }
 
   /* About */
   .about-highlights { grid-template-columns: 1fr; }

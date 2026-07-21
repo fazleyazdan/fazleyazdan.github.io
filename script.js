@@ -262,8 +262,83 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ---- Typing effect for terminal (enhancement) ----
-// Already handled via CSS animation delays
+// ---- Typewriter Effect ----
+const typewriterEl = document.getElementById('typewriter-text');
+const typewriterPhrases = [
+  'Senior QA Engineer',
+  'Test Automation Expert',
+  'Quality Strategist',
+  'CI/CD Integration Specialist',
+  'Performance Testing Engineer'
+];
+
+let twPhrase = 0;
+let twChar = 0;
+let twDeleting = false;
+let twPause = false;
+
+function typewriterTick() {
+  if (!typewriterEl) return;
+
+  const current = typewriterPhrases[twPhrase];
+
+  if (twPause) {
+    setTimeout(typewriterTick, 1200);
+    twPause = false;
+    return;
+  }
+
+  if (!twDeleting) {
+    typewriterEl.textContent = current.substring(0, twChar + 1);
+    twChar++;
+    if (twChar === current.length) {
+      twDeleting = true;
+      twPause = true;
+    }
+    setTimeout(typewriterTick, 80);
+  } else {
+    typewriterEl.textContent = current.substring(0, twChar - 1);
+    twChar--;
+    if (twChar === 0) {
+      twDeleting = false;
+      twPhrase = (twPhrase + 1) % typewriterPhrases.length;
+    }
+    setTimeout(typewriterTick, 40);
+  }
+}
+
+// Start typewriter after hero intro animation
+setTimeout(typewriterTick, 800);
+
+// ---- Cursor Spotlight on Hero ----
+const heroSection = document.querySelector('.hero');
+if (heroSection) {
+  // Create spotlight element
+  const spotlight = document.createElement('div');
+  spotlight.className = 'hero-spotlight';
+  spotlight.setAttribute('aria-hidden', 'true');
+  heroSection.appendChild(spotlight);
+
+  heroSection.addEventListener('mousemove', (e) => {
+    const rect = heroSection.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    spotlight.style.left = x + 'px';
+    spotlight.style.top = y + 'px';
+  });
+}
+
+// ---- Download button pulse on first load ----
+const downloadBtn = document.getElementById('hero-download-cv');
+if (downloadBtn) {
+  setTimeout(() => {
+    downloadBtn.style.transition = 'box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease';
+    downloadBtn.style.boxShadow = '0 0 0 4px rgba(0, 212, 170, 0.15)';
+    setTimeout(() => {
+      downloadBtn.style.boxShadow = '';
+    }, 700);
+  }, 2500);
+}
 
 // ---- Page load fade in ----
 document.body.style.opacity = '0';
@@ -273,7 +348,7 @@ window.addEventListener('load', () => {
 });
 
 console.log(
-  '%c 👋 Hey there, fellow developer! ',
+  '%c Hi Fazle! Your portfolio is live ',
   'background: linear-gradient(135deg, #6c63ff, #00d4aa); color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: bold;'
 );
 console.log(

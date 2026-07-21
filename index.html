@@ -25,6 +25,7 @@
       <ul class="nav-links" id="nav-links" role="list">
         <li><a href="#about" id="nav-about">About</a></li>
         <li><a href="#skills" id="nav-skills">Skills</a></li>
+        <li><a href="#domains" id="nav-domains">Domains</a></li>
         <li><a href="#experience" id="nav-experience">Experience</a></li>
         <li><a href="#projects" id="nav-projects">Projects</a></li>
         <li><a href="#contact" id="nav-contact" class="nav-cta">Contact</a></li>
@@ -51,12 +52,11 @@
 
         <h1 class="hero-title">
           Hi, I'm
-          <span class="hero-name">fazleyazdan</span>
+          <span class="hero-name">Fazle Yazdan</span>
         </h1>
 
         <p class="hero-role">
-          <strong>Senior QA Engineer</strong> — Building confidence in software,
-          one test at a time.
+          <strong><span id="typewriter-text"></span></strong><span class="typewriter-cursor" aria-hidden="true">|</span>
         </p>
 
         <p class="hero-desc">
@@ -73,6 +73,10 @@
           <a href="#contact" class="btn-secondary" id="hero-get-in-touch">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
             Get In Touch
+          </a>
+          <a href="resume.pdf" class="btn-download" id="hero-download-cv" download="Fazle_Yazdan_CV.pdf" aria-label="Download CV as PDF">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
           </a>
         </div>
 
@@ -161,8 +165,8 @@
       <div class="about-grid">
         <!-- Avatar -->
         <div class="about-avatar-wrapper reveal">
-          <div class="about-avatar" aria-label="Profile avatar with initials AM">
-            <span class="avatar-initials" aria-hidden="true">AM</span>
+          <div class="about-avatar" aria-label="Profile avatar with initials FY">
+            <span class="avatar-initials" aria-hidden="true">FY</span>
             <div class="avatar-ring" aria-hidden="true"></div>
           </div>
           <div class="about-badge" aria-label="Current role">
@@ -324,6 +328,75 @@
             <span class="skill-tag">AI-Assisted Testing</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOMAINS ============ -->
+  <section class="domains" id="domains" aria-label="Industry domains">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <div class="section-tag">Industries</div>
+        <h2 class="section-title">Domains I've <span>Tested For</span></h2>
+        <p class="section-subtitle">Delivering quality across highly regulated and complex industry verticals.</p>
+      </div>
+
+      <div class="domains-grid">
+
+        <div class="domain-card reveal" id="domain-security">
+          <div class="domain-icon-wrap" style="--domain-color: #6c63ff;">
+            <span class="domain-emoji" aria-hidden="true">&#128274;</span>
+          </div>
+          <h3 class="domain-name">Security &amp; Compliance</h3>
+          <p class="domain-desc">Validating audit trails, access controls, and regulatory compliance pipelines across enterprise systems.</p>
+          <div class="domain-tag">Regulatory &middot; Audit &middot; Access Control</div>
+        </div>
+
+        <div class="domain-card reveal reveal-delay-1" id="domain-payments">
+          <div class="domain-icon-wrap" style="--domain-color: #00d4aa;">
+            <span class="domain-emoji" aria-hidden="true">&#128179;</span>
+          </div>
+          <h3 class="domain-name">Payments &amp; Billing</h3>
+          <p class="domain-desc">End-to-end testing of payment gateways, transactional flows, payins/payouts, and financial accuracy.</p>
+          <div class="domain-tag">Fintech &middot; Transactions &middot; Payouts</div>
+        </div>
+
+        <div class="domain-card reveal reveal-delay-2" id="domain-healthcare">
+          <div class="domain-icon-wrap" style="--domain-color: #ff6b9d;">
+            <span class="domain-emoji" aria-hidden="true">&#127973;</span>
+          </div>
+          <h3 class="domain-name">Healthcare</h3>
+          <p class="domain-desc">Ensuring data integrity and reliability in critical patient-facing healthcare workflows and systems.</p>
+          <div class="domain-tag">Health Data &middot; Compliance &middot; Critical Systems</div>
+        </div>
+
+        <div class="domain-card reveal" id="domain-ecommerce">
+          <div class="domain-icon-wrap" style="--domain-color: #ffd166;">
+            <span class="domain-emoji" aria-hidden="true">&#128722;</span>
+          </div>
+          <h3 class="domain-name">Ecommerce</h3>
+          <p class="domain-desc">Testing shopping flows, inventory management, cart logic, and checkout integrations at scale.</p>
+          <div class="domain-tag">Retail &middot; Checkout &middot; Inventory</div>
+        </div>
+
+        <div class="domain-card reveal reveal-delay-1" id="domain-construction">
+          <div class="domain-icon-wrap" style="--domain-color: #f97316;">
+            <span class="domain-emoji" aria-hidden="true">&#127959;</span>
+          </div>
+          <h3 class="domain-name">Construction Management</h3>
+          <p class="domain-desc">Quality assurance for project tracking, resource allocation, and field management platforms.</p>
+          <div class="domain-tag">Project Mgmt &middot; Field Ops &middot; Scheduling</div>
+        </div>
+
+        <div class="domain-card reveal reveal-delay-2" id="domain-hrms">
+          <div class="domain-icon-wrap" style="--domain-color: #8b85ff;">
+            <span class="domain-emoji" aria-hidden="true">&#128101;</span>
+          </div>
+          <h3 class="domain-name">HRMS &amp; SaaS Platforms</h3>
+          <p class="domain-desc">Testing multi-tenant HR systems, payroll flows, employee lifecycle tools, and enterprise SaaS.</p>
+          <div class="domain-tag">HR &middot; Multi-tenant &middot; Enterprise SaaS</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -557,7 +630,7 @@
 
   <!-- ============ FOOTER ============ -->
   <footer>
-    <p>Designed & built with ❤️ by <span>fazleyazdan</span> — Senior QA Engineer</p>
+    <p>Designed &amp; built with &#10084;&#65039; by <span>Fazle Yazdan</span> &mdash; Senior QA Engineer</p>
     <p style="margin-top:0.5rem; font-size:0.75rem;">© 2026 All rights reserved.</p>
   </footer>
 
