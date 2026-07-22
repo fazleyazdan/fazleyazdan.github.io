@@ -38,6 +38,12 @@
 
   <!-- Mobile Nav Overlay (outside navbar to avoid backdrop-filter stacking context bug) -->
   <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true" role="dialog" aria-label="Mobile navigation menu">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
     <ul class="mobile-nav-links" role="list">
       <li><a href="#about" id="mob-nav-about">About</a></li>
       <li><a href="#skills" id="mob-nav-skills">Skills</a></li>

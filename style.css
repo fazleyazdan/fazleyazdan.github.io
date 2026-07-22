@@ -1510,6 +1510,31 @@ footer span {
   box-shadow: var(--shadow-btn);
 }
 
+.mobile-nav-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  width: 44px;
+  height: 44px;
+}
+
+.mobile-nav-close:hover {
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--text-primary);
+  transform: rotate(90deg);
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */

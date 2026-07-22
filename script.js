@@ -57,6 +57,10 @@ mobileOverlay.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
+// Close button (✕) inside overlay
+const mobileNavClose = document.getElementById('mobile-nav-close');
+if (mobileNavClose) mobileNavClose.addEventListener('click', closeMenu);
+
 // Close menu on Escape key
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeMenu();
