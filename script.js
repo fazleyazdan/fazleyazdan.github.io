@@ -22,6 +22,9 @@ hamburger.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   hamburger.setAttribute('aria-expanded', isOpen.toString());
 
+  // Lock body scroll when menu is open
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+
   // Animate hamburger lines
   const spans = hamburger.querySelectorAll('span');
   if (isOpen) {
@@ -40,6 +43,7 @@ navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
     const spans = hamburger.querySelectorAll('span');
     spans[0].style.transform = '';
     spans[1].style.opacity = '';
