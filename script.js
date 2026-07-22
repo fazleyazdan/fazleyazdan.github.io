@@ -18,14 +18,28 @@ window.addEventListener('scroll', () => {
 });
 
 // ---- Hamburger menu ----
+const mobileOverlay = document.getElementById('mobile-nav-overlay');
+
+function closeMenu() {
+  mobileOverlay.classList.remove('open');
+  mobileOverlay.setAttribute('aria-hidden', 'true');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].style.transform = '';
+  spans[1].style.opacity = '';
+  spans[2].style.transform = '';
+}
+
 hamburger.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
+  const isOpen = mobileOverlay.classList.toggle('open');
+  mobileOverlay.setAttribute('aria-hidden', (!isOpen).toString());
   hamburger.setAttribute('aria-expanded', isOpen.toString());
 
   // Lock body scroll when menu is open
   document.body.style.overflow = isOpen ? 'hidden' : '';
 
-  // Animate hamburger lines
+  // Animate hamburger → ✕ when open
   const spans = hamburger.querySelectorAll('span');
   if (isOpen) {
     spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -38,18 +52,16 @@ hamburger.addEventListener('click', () => {
   }
 });
 
-// Close menu when clicking a link
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    const spans = hamburger.querySelectorAll('span');
-    spans[0].style.transform = '';
-    spans[1].style.opacity = '';
-    spans[2].style.transform = '';
-  });
+// Close menu when clicking any overlay link
+mobileOverlay.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMenu);
 });
+
+// Close menu on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenu();
+});
+
 
 // ---- Active nav link on scroll ----
 function updateActiveNav() {

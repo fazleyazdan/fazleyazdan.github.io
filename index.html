@@ -36,6 +36,18 @@
     </div>
   </nav>
 
+  <!-- Mobile Nav Overlay (outside navbar to avoid backdrop-filter stacking context bug) -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true" role="dialog" aria-label="Mobile navigation menu">
+    <ul class="mobile-nav-links" role="list">
+      <li><a href="#about" id="mob-nav-about">About</a></li>
+      <li><a href="#skills" id="mob-nav-skills">Skills</a></li>
+      <li><a href="#domains" id="mob-nav-domains">Domains</a></li>
+      <li><a href="#experience" id="mob-nav-experience">Experience</a></li>
+      <li><a href="#projects" id="mob-nav-projects">Projects</a></li>
+      <li><a href="#contact" id="mob-nav-contact" class="mob-nav-cta">Contact</a></li>
+    </ul>
+  </div>
+
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero" aria-label="Introduction">
     <div class="hero-grid-bg" aria-hidden="true"></div>
