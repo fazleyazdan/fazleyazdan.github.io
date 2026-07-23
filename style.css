@@ -952,8 +952,16 @@ section {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+}
+
+/* 3rd card centred below the two-column row */
+.projects-grid .project-card:nth-child(3) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 0.75rem);
+  margin: 0 auto;
+  width: 100%;
 }
 
 .project-card {
@@ -1570,6 +1578,13 @@ footer span {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Reset centred 3rd card on small screens */
+  .projects-grid .project-card:nth-child(3) {
+    grid-column: auto;
+    max-width: 100%;
+    margin: 0;
   }
 
   .domains-grid {
